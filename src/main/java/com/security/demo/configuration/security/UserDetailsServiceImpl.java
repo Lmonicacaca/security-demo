@@ -24,7 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         List<User> users = userService.selectByUserName(userName);
         if(CollectionUtils.isEmpty(users)){
-            throw new UsernameNotFoundException("用户不存在");
+            throw new RuntimeException("用户不存在");
         }
         User user = users.get(0);
         AuthUserDetail authUserDetail = new AuthUserDetail(user.getUserName(),user.getPassword(),new ArrayList<>());
