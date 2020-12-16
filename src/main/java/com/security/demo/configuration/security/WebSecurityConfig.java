@@ -2,18 +2,22 @@ package com.security.demo.configuration.security;
 
 
 import com.security.demo.configuration.handle.*;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import javax.annotation.Resource;
 
-
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Primary
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private UserDetailsServiceImpl userDetailsServiceImpl;
@@ -75,15 +79,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 maximumSessions(1).
                 //会话失效(账号被挤下线)处理逻辑
                 expiredSessionStrategy(sysSessionInformationExpiredStrategy);
-//        http.addFilterBefore(securityInterceptor, FilterSecurityInterceptor.class);
 
 
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(this.userDetailsServiceImpl);
-        MD5SaltPwdEncoder pwdEncoder=new MD5SaltPwdEncoder();
-        provider.setPasswordEncoder(pwdEncoder);
-        http.authenticationProvider(provider);
+//        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+//        provider.setUserDetailsService(this.userDetailsServiceImpl);
+//        MD5SaltPwdEncoder pwdEncoder=new MD5SaltPwdEncoder();
+//        provider.setPasswordEncoder(pwdEncoder);
+//        http.authenticationProvider(provider);
     }
+
+    @Bean
+    public MD5SaltPwdEncoder passwordEncoder() {
+        return new MD5SaltPwdEncoder();
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsServiceImpl);
