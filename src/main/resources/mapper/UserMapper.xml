@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.security.demo.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.security.demo.entity.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="is_sender" jdbcType="INTEGER" property="isSender" />
+    <result column="sync_state" jdbcType="INTEGER" property="syncState" />
+    <result column="user_or_person" jdbcType="CHAR" property="userOrPerson" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="person_type" jdbcType="CHAR" property="personType" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="position_dic_id" jdbcType="INTEGER" property="positionDicId" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="sign" jdbcType="VARCHAR" property="sign" />
+    <result column="birth" jdbcType="VARCHAR" property="birth" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="active" jdbcType="BIT" property="active" />
+    <result column="accid" jdbcType="VARCHAR" property="accid" />
+    <result column="show_page" jdbcType="INTEGER" property="showPage" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="ex" jdbcType="VARCHAR" property="ex" />
+    <result column="court_id" jdbcType="BIGINT" property="courtId" />
+    <result column="props" jdbcType="VARCHAR" property="props" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="third_party_user_id" jdbcType="VARCHAR" property="thirdPartyUserId" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="land_tel" jdbcType="VARCHAR" property="landTel" />
+    <result column="superior_user_id" jdbcType="BIGINT" property="superiorUserId" />
+    <result column="short_tel" jdbcType="VARCHAR" property="shortTel" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="if_external" jdbcType="CHAR" property="ifExternal" />
+    <result column="photo_oss_key" jdbcType="VARCHAR" property="photoOssKey" />
+    <result column="in_staff" jdbcType="INTEGER" property="inStaff" />
+    <result column="secret_related" jdbcType="INTEGER" property="secretRelated" />
+    <result column="gesture_password" jdbcType="VARCHAR" property="gesturePassword" />
+    <result column="gesture_password_active" jdbcType="INTEGER" property="gesturePasswordActive" />
+    <result column="mobile_flag" jdbcType="INTEGER" property="mobileFlag" />
+    <result column="short_tel_flag" jdbcType="INTEGER" property="shortTelFlag" />
+    <result column="data_access" jdbcType="VARCHAR" property="dataAccess" />
+    <result column="order_sort" jdbcType="INTEGER" property="orderSort" />
+    <result column="default_account" jdbcType="INTEGER" property="defaultAccount" />
+    <result column="active_type" jdbcType="INTEGER" property="activeType" />
+  </resultMap>
+
+  <select id="selectByUserName" resultMap="BaseResultMap">
+    select * from yj_users where user_name = #{userName}
+  </select>
+</mapper>
