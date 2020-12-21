@@ -28,4 +28,10 @@ public class MD5SaltPwdEncoder implements PasswordEncoder {
         String encPass = salt + charSequence.toString();
         return Md5Util.isPasswordValid(s.toLowerCase(),encPass);
     }
+
+    public static String encodeS(String passWord) {
+        String s = salt + passWord;
+        String newpwd = Md5Util.encode(s).toUpperCase();
+        return newpwd;
+    }
 }

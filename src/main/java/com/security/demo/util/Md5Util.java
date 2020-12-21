@@ -1,5 +1,7 @@
 package com.security.demo.util;
 
+import com.security.demo.configuration.security.MD5SaltPwdEncoder;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -40,11 +42,10 @@ public class Md5Util { private static final char[] DIGITS = new char[]{'0', '1',
         String pass2 = encode(rawPass);
         return pass1.equals(pass2);
     }
-
     public static void main(String[] args) {
-        String result = encode("111111");
+        String result = encode("123456");
         System.out.println("password=" + result.toUpperCase());
-        boolean isGood = isPasswordValid("E10ADC3949BA59ABBE56E057F20F883E", "111111");
+        boolean isGood = isPasswordValid("EFB7C11129052F8421373FABA50C94E8", "123456");
         System.out.println("isGood=" + isGood);
     }
 

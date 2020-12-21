@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * @author lilin
+ */
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
@@ -16,5 +19,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> selectByUserName(String userName) {
         return userMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public User getById(Long id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 }

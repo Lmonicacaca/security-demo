@@ -45,6 +45,7 @@ public class BaseResponseVO<T> implements Serializable {
     public BaseResponseVO status(StatusEnum e){
         this.errorCode = e.getCode();
         this.errorMessage = e.getMsg();
+        this.success = false;
         return this;
     }
 

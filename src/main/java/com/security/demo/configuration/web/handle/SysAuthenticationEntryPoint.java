@@ -1,4 +1,4 @@
-package com.security.demo.configuration.handle;
+package com.security.demo.configuration.web.handle;
 
 import com.alibaba.fastjson.JSON;
 import com.security.demo.vo.BaseResponseVO;
