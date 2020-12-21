@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //登入
                 and().formLogin().
                 //默认的登录url是/login,这里可以根据需要修改，注意是POST请求，使用get会报404
-                loginProcessingUrl("/login/account").
+                loginProcessingUrl("/api/login/account").
                 //允许所有用户登录
                 permitAll().
                 //登录成功处理逻辑
