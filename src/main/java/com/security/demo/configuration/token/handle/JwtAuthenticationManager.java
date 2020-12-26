@@ -1,9 +1,12 @@
 package com.security.demo.configuration.token.handle;
 
 import com.alibaba.druid.util.StringUtils;
+import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.security.demo.configuration.security.AuthUserDetail;
 import com.security.demo.entity.User;
 import com.security.demo.service.UserService;
 import com.security.demo.util.JwtUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -15,6 +18,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Objects;
 
 @Component
@@ -42,10 +46,11 @@ public class JwtAuthenticationManager implements AuthenticationManager {
             throw new UsernameNotFoundException("该用户不存在");
         }
 
-        HttpServletRequest request =
-            ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+        AuthUserDetail authUserDetail = new AuthUserDetail(user.getUserName(),user.getPassword(),new ArrayList<>());
+        authUserDetail.setUserId(user.getId());
+        authUserDetail.setMobile(user.getMobile());
         JwtAuthenticationToken authenticatedAuth = new JwtAuthenticationToken(
-            token, user, AuthorityUtils.commaSeparatedStringToAuthorityList(null)
+            token, authUserDetail, AuthorityUtils.commaSeparatedStringToAuthorityList(null)
         );
         return authenticatedAuth;
     }

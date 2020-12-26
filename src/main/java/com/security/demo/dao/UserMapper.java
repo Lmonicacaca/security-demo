@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserMapper extends TkMapper<User> {
 
     List<User> selectByUserName(@Param("userName") String userName);
+
+    User selectById(@Param("id") Long id);
 }

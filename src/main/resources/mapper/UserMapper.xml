@@ -56,4 +56,8 @@
   <select id="selectByUserName" resultMap="BaseResultMap">
     select * from yj_users where user_name = #{userName}
   </select>
+
+  <select id="selectById" resultMap="BaseResultMap">
+    select * from yj_users where id = #{id}
+  </select>
 </mapper>
