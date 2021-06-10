@@ -11,8 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-@Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+//@Configuration
+//@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     private BasicAuthenticationFilter basicAuthenticationFilter;

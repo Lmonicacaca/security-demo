@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  **/
 public class MD5SaltPwdEncoder implements PasswordEncoder {
 
-    //private static final String salt = "safety_supervision";
+//    private static final String salt = "safety_supervision";
 
     private static final String salt = "wisdom_court";
 
@@ -33,5 +33,9 @@ public class MD5SaltPwdEncoder implements PasswordEncoder {
         String s = salt + passWord;
         String newpwd = Md5Util.encode(s).toUpperCase();
         return newpwd;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(encodeS("123456"));
     }
 }
