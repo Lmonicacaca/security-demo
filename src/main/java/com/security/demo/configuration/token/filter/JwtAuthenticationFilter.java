@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * 鉴权使用过滤器
  */
-@Component
+//@Component
 public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
     @Value("${jwt.header}")
     private String tokenHeader;

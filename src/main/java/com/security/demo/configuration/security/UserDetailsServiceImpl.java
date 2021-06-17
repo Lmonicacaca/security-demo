@@ -1,6 +1,6 @@
 package com.security.demo.configuration.security;
 
-import com.security.demo.configuration.security.AuthUserDetail;
+import com.nmpa.risk.entity.AuthUserDetail;
 import com.security.demo.entity.User;
 import com.security.demo.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,6 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         User user = users.get(0);
         AuthUserDetail authUserDetail = new AuthUserDetail(user.getUserName(),user.getPassword(),new ArrayList<>());
+        authUserDetail.setUserId(user.getId());
+        authUserDetail.setUserName(user.getUserName());
         return authUserDetail;
     }
 }

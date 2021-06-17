@@ -1,7 +1,7 @@
 package com.security.demo.configuration.web.handle;
 
 import com.alibaba.fastjson.JSON;
-import com.security.demo.configuration.security.AuthUserDetail;
+import com.nmpa.risk.entity.AuthUserDetail;
 import com.security.demo.vo.BaseResponseVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

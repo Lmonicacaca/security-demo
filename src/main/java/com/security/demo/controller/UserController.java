@@ -1,7 +1,7 @@
 package com.security.demo.controller;
 
-import com.security.demo.configuration.security.AuthUserDetail;
-import com.security.demo.configuration.security.AuthUserDetailUtil;
+import com.nmpa.risk.entity.AuthUserDetail;
+import com.nmpa.risk.entity.AuthUserDetailUtil;
 import com.security.demo.vo.BaseResponseVO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
